@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SogetiTodoApp", "SogetiTodoApp\SogetiTodoApp.csproj", "{A32E2888-0339-4C3D-AA40-F61D77A75966}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A32E2888-0339-4C3D-AA40-F61D77A75966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A32E2888-0339-4C3D-AA40-F61D77A75966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A32E2888-0339-4C3D-AA40-F61D77A75966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A32E2888-0339-4C3D-AA40-F61D77A75966}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5A54935-C884-4488-BB45-B1471205D89E}
+	EndGlobalSection
+EndGlobal
