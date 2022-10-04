@@ -1,4 +1,4 @@
-﻿@model SogetiTodoApp.Models.VmList
+﻿@model SogetiTodoApp.Models.VmListAndCreate
 @{
     ViewData["Title"] = "Mes tâches";
 }
@@ -21,7 +21,7 @@
         </div>
     </div>
    
-    <div class="row">
+    <div class="row mb-5">
         <h3>Liste de tâches <b>faites</b></h3>
         <div class="col-md-6">
             @foreach (var item in Model.TodoItemsDone)
@@ -37,6 +37,25 @@
                     </li>
                 </ul>
             }
+        </div>
+    </div>
+    
+    <div class="row">
+        <h3 class="mb-3">Ajouter une tâche</h3>
+        <div class="col-md-6">
+            <form asp-controller="Todo" asp-action="Create" method="post">
+                <div class="form-group mb-2">
+                    <label for="Title">Titre <span style="color: red;">*</span></label>
+                    <input asp-for="Title" type="text" class="form-control" placeholder="Entrer le titre" required/>
+                </div>
+                <div class="form-group">
+                    <label for="Description">Description</label>
+                    <input asp-for="Description" type="text" class="form-control" placeholder="Entrer la description" required />
+                </div>
+                <div class="mt-4">
+                    <button class="btn btn-primary" type="submit">Ajouter</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

@@ -48,7 +48,29 @@ namespace SogetiTodoApp.Controllers
             return RedirectToAction("List");
         }
 
+        // Create the todo
+        public IActionResult Create(VmListAndCreate data)
+        {
+            if (!string.IsNullOrEmpty(data.Title))
+            {
+                TodoItem todoItem = new TodoItem()
+                {
+                    Title = data.Title,
+                    Description = data.Description,
+                    IsDone = false
+                };
+                todoContext.Add(todoItem);
+                todoContext.SaveChanges();
 
+                return RedirectToAction("List");
+            }
+            else
+            {
+                return BadRequest("Title is required");
+            }
+        }
+
+        // Update the Todo within the database context
         public IActionResult UpdateTodo(int itemId, bool isDone)
         {
             var todoItem = todoContext.Todos.Find(itemId);
@@ -61,6 +83,7 @@ namespace SogetiTodoApp.Controllers
             return RedirectToAction("List");
         }
 
+        // View the Item
         public IActionResult View(int id)
         {
             var todoItem = todoContext.Todos.Find(id);
@@ -79,7 +102,7 @@ namespace SogetiTodoApp.Controllers
         [HttpGet]
         public IActionResult List()
         {
-            VmList model = new VmList();
+            VmListAndCreate model = new VmListAndCreate();
             var todoItems = todoContext.Todos
                 .OrderByDescending(x => x.Id);
             
