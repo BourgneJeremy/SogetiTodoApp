@@ -1,0 +1,48 @@
+﻿@model SogetiTodoApp.Models.VmList
+@{
+    ViewData["Title"] = "Mes Todos";
+}
+
+<div class="container">
+    <div class="row">
+        <h3>Liste de tâches <b>à faire</b></h3>
+        <div class="col-md-6 mb-5">
+            @foreach (var item in Model.TodoItemsNotDone)
+            {
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <p><b>Titre : </b> @item.Title</p>
+                        <p>
+                            <b>Changer de statut : <button onclick="checkTodo(@item.Id, true)">Fait</button></b>
+                        </p>
+
+                    </li>
+                </ul>
+            }
+        </div>
+    </div>
+   
+    <div class="row">
+        <h3>Liste de tâches <b>faites</b></h3>
+        <div class="col-md-6">
+            @foreach (var item in Model.TodoItemsDone)
+            {
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <p><b>Titre : </b> <strike>@item.Title</strike></p>
+                        <p>
+                            <b>Changer de statut : <button onclick="checkTodo(@item.Id, false)">A faire</button></b>
+                        </p>
+                    </li>
+                </ul>
+            }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function checkTodo(itemId, isDone) {
+        console.log(itemId);
+        console.log(isDone);
+    }
+</script>
