@@ -1,0 +1,28 @@
+﻿@model SogetiTodoApp.Models.VmTodoItem
+@{
+    ViewData["Title"] = "Ma tâche";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-5" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">@Model.Title</h5>
+                @if (Model.IsDone)
+                {
+                    <h6 class="card-subtitle mb-2 text-muted">Statut : Fait</h6>
+                } 
+                else 
+                {
+                    <h6 class="card-subtitle mb-2 text-muted">Statut : A faire</h6>
+                }
+                <p class="card-text">@Model.Description</p>
+              </div>
+            </div>
+            <div class="mt-5">
+                @Html.ActionLink("Retour à la liste", "List", "Todo", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    </div>
+</div>

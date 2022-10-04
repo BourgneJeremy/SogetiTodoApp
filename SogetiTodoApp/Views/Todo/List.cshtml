@@ -1,6 +1,6 @@
 ﻿@model SogetiTodoApp.Models.VmList
 @{
-    ViewData["Title"] = "Mes Todos";
+    ViewData["Title"] = "Mes tâches";
 }
 
 <div class="container">
@@ -13,7 +13,7 @@
                     <li class="list-group-item">
                         <p>
                             <b><button onclick="checkTodo(@item.Id, true)">O</button></b>
-                            @item.Title
+                            @Html.ActionLink(item.Title, "View", "Todo", new { id = item.Id }, new { @class = "without-link" })
                          </p>
                     </li>
                 </ul>
@@ -30,7 +30,9 @@
                     <li class="list-group-item">
                         <p>
                             <b><button onclick="checkTodo(@item.Id, false)">X</button></b>
-                            <strike>@item.Title</strike>
+                            <strike>
+                                @Html.ActionLink(item.Title, "View", "Todo", new { id = item.Id }, new { @class = "without-link" })
+                            </strike>
                         <p>
                     </li>
                 </ul>

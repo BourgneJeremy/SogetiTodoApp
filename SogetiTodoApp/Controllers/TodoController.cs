@@ -61,6 +61,18 @@ namespace SogetiTodoApp.Controllers
             return RedirectToAction("List");
         }
 
+        public IActionResult View(int id)
+        {
+            var todoItem = todoContext.Todos.Find(id);
+            VmTodoItem model = new VmTodoItem();
+
+            model.Title = todoItem.Title;
+            model.Description = todoItem.Description;
+            model.IsDone = todoItem.IsDone;
+
+            return View(model);
+        }
+
         /// <summary>
         /// Shows the list of todos in a web page
         /// </summary>
