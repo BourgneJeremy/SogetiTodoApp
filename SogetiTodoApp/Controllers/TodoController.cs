@@ -49,6 +49,18 @@ namespace SogetiTodoApp.Controllers
         }
 
 
+        public IActionResult UpdateTodo(int itemId, bool isDone)
+        {
+            var todoItem = todoContext.Todos.Find(itemId);
+            if (todoItem == null)
+                return BadRequest();
+
+            todoItem.IsDone = isDone;
+            todoContext.SaveChanges();
+
+            return RedirectToAction("List");
+        }
+
         /// <summary>
         /// Shows the list of todos in a web page
         /// </summary>
@@ -58,9 +70,9 @@ namespace SogetiTodoApp.Controllers
             VmList model = new VmList();
             var todoItems = todoContext.Todos
                 .OrderByDescending(x => x.Id);
-
-            model.TodoItemsDone = todoItems.Where(x => x.IsDone == true).ToList();
+            
             model.TodoItemsNotDone = todoItems.Where(x => x.IsDone == false).ToList();
+            model.TodoItemsDone = todoItems.Where(x => x.IsDone == true).ToList();
 
             return View(model); 
         }

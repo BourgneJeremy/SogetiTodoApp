@@ -11,11 +11,10 @@
             {
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <p><b>Titre : </b> @item.Title</p>
                         <p>
-                            <b>Changer de statut : <button onclick="checkTodo(@item.Id, true)">Fait</button></b>
-                        </p>
-
+                            <b><button onclick="checkTodo(@item.Id, true)">O</button></b>
+                            @item.Title
+                         </p>
                     </li>
                 </ul>
             }
@@ -29,10 +28,10 @@
             {
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <p><b>Titre : </b> <strike>@item.Title</strike></p>
                         <p>
-                            <b>Changer de statut : <button onclick="checkTodo(@item.Id, false)">A faire</button></b>
-                        </p>
+                            <b><button onclick="checkTodo(@item.Id, false)">X</button></b>
+                            <strike>@item.Title</strike>
+                        <p>
                     </li>
                 </ul>
             }
@@ -41,8 +40,19 @@
 </div>
 
 <script type="text/javascript">
+    // Send an XhrHttpRequest
     function checkTodo(itemId, isDone) {
-        console.log(itemId);
-        console.log(isDone);
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "/Todo/UpdateTodo", true)
+
+        //Send the proper header information along with the request
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xhr.onreadystatechange = () => { // Call a function when the state changes.
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                location.reload();
+            }
+        }
+        xhr.send("itemId=" + itemId + "&isDone=" + isDone);
     }
 </script>
