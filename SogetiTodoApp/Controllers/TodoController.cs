@@ -18,16 +18,6 @@ namespace SogetiTodoApp.Controllers
             this.todoContext = todoContext;
         }
 
-        /// <summary>
-        /// Generated data for tests
-        /// </summary>
-        private static List<TodoItem> todos = new List<TodoItem>()
-        {
-            new TodoItem() { Title = "Aller faire les courses", Description = "Lait, oignons, crème fraiche", IsDone = false },
-            new TodoItem() { Title = "Faire le ménage", Description = "Aspirateur, machine à laver, sol, serpière", IsDone = false },
-            new TodoItem() { Title = "Faire du Hip Hop", Description = "Travailler les isolations", IsDone = true }
-        };
-
 
         /// <summary>
         /// Do the generation of items and go to the list
@@ -38,6 +28,7 @@ namespace SogetiTodoApp.Controllers
             var todoItems = todoContext.Todos.ToList();
             if (todoItems == null || todoItems.Count < 1 || todoItems.Count == 0)
             {
+                var todos = TodoHelper.GenerateTodos();
                 foreach (var todo in todos)
                 {
                     todoContext.Todos.Add(todo);
@@ -53,12 +44,7 @@ namespace SogetiTodoApp.Controllers
         {
             if (!string.IsNullOrEmpty(data.Title))
             {
-                TodoItem todoItem = new TodoItem()
-                {
-                    Title = data.Title,
-                    Description = data.Description,
-                    IsDone = false
-                };
+                TodoItem todoItem = TodoHelper.AddTodoItem(data.Title, data.Description, false);
                 todoContext.Add(todoItem);
                 todoContext.SaveChanges();
 

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SogetiTodoApp", "SogetiTodoApp\SogetiTodoApp.csproj", "{A32E2888-0339-4C3D-AA40-F61D77A75966}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SogetiTodoApp", "SogetiTodoApp\SogetiTodoApp.csproj", "{A32E2888-0339-4C3D-AA40-F61D77A75966}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SogetiTodoApp.Tests", "SogetiTodoApp.Tests\SogetiTodoApp.Tests.csproj", "{6A6BE527-4D1D-4165-BBB5-10941FD0DF87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A32E2888-0339-4C3D-AA40-F61D77A75966}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A32E2888-0339-4C3D-AA40-F61D77A75966}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A32E2888-0339-4C3D-AA40-F61D77A75966}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A6BE527-4D1D-4165-BBB5-10941FD0DF87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A6BE527-4D1D-4165-BBB5-10941FD0DF87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A6BE527-4D1D-4165-BBB5-10941FD0DF87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A6BE527-4D1D-4165-BBB5-10941FD0DF87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
